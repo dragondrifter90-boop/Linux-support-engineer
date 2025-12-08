@@ -1,0 +1,2 @@
+# EC2 Health Check - runs daily at 6 AM
+0 6 * * * /home/ubuntu/Linux-support-engineer/01-bash-system-info/ec2_health_check.sh

@@ -1,0 +1,7 @@
+=== EC2 System Health Report ===
+Generated on: Sun Dec  7 12:59:05 UTC 2025
+=================================
+
+8. THRESHOLD CHECKS:
+Root Disk Usage: 26% [OK]
+Memory Usage: 44% [OK]
