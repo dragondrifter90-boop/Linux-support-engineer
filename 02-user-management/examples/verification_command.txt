@@ -1,0 +1,21 @@
+# Check created users
+getent passwd | grep -E '(jsmith|mjones|rbrown)'
+jsmith:x:1001:1002:John Smith:/home/jsmith:/bin/bash
+mjones:x:1002:1003:Mary Jones:/home/mjones:/bin/bash
+rbrown:x:1003:1004:Robert Brown:/home/rbrown:/bin/bash
+# Check group membership
+getent group dev-team
+dev-team:x:1001:jsmith,mjones,rbrown
+# Verify project directory permissions
+ls -ld /opt/awesome_project
+drwxrwsr-x 2 root dev-team 4096 Dec 12 10:40 /opt/awesome_project
+# Check log file
+tail -n 10 /var/log/user_onboarding.log
+2025-12-12 10:40:22 - === Starting user onboarding process ===
+2025-12-12 10:40:22 - Created group: dev-team
+2025-12-12 10:40:22 - Created project directory: /opt/awesome_project with SETGID bit
+2025-12-12 10:40:22 - Processing CSV file: /home/ubuntu/Linux-support-engineer/02-user-management/test-files/new_developers.csv
+2025-12-12 10:40:22 - CREATED: User 'jsmith' (John Smith) - Groups: jsmith dev-team
+2025-12-12 10:40:22 - CREATED: User 'mjones' (Mary Jones) - Groups: mjones dev-team
+2025-12-12 10:40:22 - CREATED: User 'rbrown' (Robert Brown) - Groups: rbrown dev-team
+2025-12-12 10:40:22 - === Onboarding completed ===
